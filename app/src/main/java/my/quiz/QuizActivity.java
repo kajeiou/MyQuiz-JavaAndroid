@@ -105,7 +105,6 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent( QuizActivity.this, HomeActivity.class);
-
                 startActivity(intent);
             }
         });
