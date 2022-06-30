@@ -57,7 +57,6 @@ public class HomeActivity extends AppCompatActivity {
                 mAuth.signOut();
                 Intent intent = new Intent(HomeActivity.this, MainActivity.class);
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(), "Vous vous êtes déconnecté avec succès", Toast.LENGTH_SHORT).show();
             }
         });
         beginQuiz.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +64,6 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, QuizActivity.class);
                 intent.putExtra("user", user);
-                Toast.makeText(getApplicationContext(), user.getName(), Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         });
@@ -102,7 +100,6 @@ public class HomeActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
                 adapter2.notifyDataSetChanged();
             }
-
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

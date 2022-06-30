@@ -38,6 +38,7 @@ public class FinishedActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Toast.makeText(getApplicationContext(), "QUIZ TERMINÉ", Toast.LENGTH_SHORT).show();
     }
 
 }

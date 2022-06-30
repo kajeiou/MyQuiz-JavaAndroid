@@ -43,6 +43,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp"
+        android:color="#fefefe"
+        android:backgroundTint="#44A648"
         android:text="S'AUTHENTIFIER"
         android:onClick="login"
         />
