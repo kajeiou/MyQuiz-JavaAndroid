@@ -5,29 +5,33 @@
     android:layout_gravity="center_horizontal|center_vertical"
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
+
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/Title"
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:text="Choisissez désormais un thème pour commencer le quiz"
-        android:textSize="14sp"
-        android:textStyle="bold" />
-
-    <ListView
-        android:id="@+id/listThemes"
+        android:gravity="center_horizontal"
+        android:text="Vous avez terminé le quiz !"
+        android:textSize="14sp" />
+    <TextView
+        android:id="@+id/score"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal"
+        android:text="Votre score : "
+        android:textSize="14sp" />
     <Button
-        android:id="@+id/cancel"
+        android:id="@+id/finishQuiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="Annuler"
-        android:backgroundTint="#818181"
+        android:padding="12dp"
+        android:backgroundTint="#44A648"
+        android:text="Retour à l'accueil"
+        android:onClick="finishQuiz"
         />
 
 </LinearLayout>

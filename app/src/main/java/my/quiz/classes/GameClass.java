@@ -1,6 +1,8 @@
 package my.quiz.classes;
 
-public class GameClass {
+import java.io.Serializable;
+
+public class GameClass implements Serializable {
     private int id;
     private String theme;
     private int score=0;

@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Nabil/Desktop/Android/QuizProject/app/src/main/res/layout/activity_finished.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Nabil/Desktop/Android/QuizProject/app/src/main/res/layout/activity_home.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Nabil/Desktop/Android/QuizProject/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Nabil/Desktop/Android/QuizProject/app/src/main/res/layout/activity_quiz.xml" value="0.27291666666666664" />
-        <entry key="..\:/Users/Nabil/Desktop/Android/QuizProject/app/src/main/res/layout/activity_started.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Nabil/Desktop/Android/QuizProject/app/src/main/res/layout/activity_started.xml" value="0.25" />
+        <entry key="..\:/Users/Nabil/Desktop/Android/QuizProject/app/src/main/res/layout/list_friends.xml" value="0.21354166666666666" />
+        <entry key="..\:/Users/Nabil/Desktop/Android/QuizProject/app/src/main/res/layout/list_gamesplayed.xml" value="0.2125" />
         <entry key="..\:/Users/Nabil/Desktop/Android/QuizProject/app/src/main/res/layout/list_item.xml" value="0.27291666666666664" />
       </map>
     </option>

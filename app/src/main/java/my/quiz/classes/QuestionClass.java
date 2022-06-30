@@ -1,8 +1,9 @@
 package my.quiz.classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class QuestionClass {
+public class QuestionClass implements Serializable {
 
     private int id;
     private String question;

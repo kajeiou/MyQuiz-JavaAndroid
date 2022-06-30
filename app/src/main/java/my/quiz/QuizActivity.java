@@ -28,6 +28,7 @@ import java.util.ArrayList;
 
 import my.quiz.classes.QuestionClass;
 import my.quiz.classes.ThemeClass;
+import my.quiz.classes.UserClass;
 
 public class QuizActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
@@ -38,7 +39,10 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
         mAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = mAuth.getCurrentUser();
+        FirebaseUser userF = mAuth.getCurrentUser();
+        Intent intent = getIntent();
+        UserClass user = (UserClass) intent.getSerializableExtra("user");
+        Toast.makeText(getApplicationContext(), user.getName(), Toast.LENGTH_SHORT).show();
         listThemes = findViewById(R.id.listThemes);
         cancel = findViewById(R.id.cancel);
         ArrayList<ThemeClass> themes = new ArrayList<>();
@@ -84,8 +88,17 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String selectedItem = (String) adapterView.getItemAtPosition(i);
+                ThemeClass themeSelected = null;
+                for (ThemeClass theme: themes) {
+                    if(theme.getTheme().equals(selectedItem)) {
+                        themeSelected = theme;
+                        break;
+                    }
+                }
                 Toast.makeText(getApplicationContext(), selectedItem, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(QuizActivity.this, StartedActivity.class);
+                intent.putExtra("themeSelected", themeSelected);
+                intent.putExtra("user", user);
                 startActivity(intent);
             }
         });
@@ -93,6 +106,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent( QuizActivity.this, HomeActivity.class);
+
                 startActivity(intent);
             }
         });

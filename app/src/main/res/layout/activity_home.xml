@@ -8,45 +8,32 @@
 
     android:orientation="vertical">
 
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:text="Ton profil "
-        android:textSize="14sp"
-        android:textStyle="bold" />
     <TextView
         android:id="@+id/loginSuccessful"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="20dp"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:text=""
-        android:textSize="14sp"
-        android:textStyle="bold" />
-    <ListView
-        android:id="@+id/listInfo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:textSize="14sp" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:gravity="left"
         android:text="Tes amis "
         android:textSize="14sp"
         android:textStyle="bold" />
     <ListView
         android:id="@+id/listFriends"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="left"
         android:text="Tes dernieres parties"
         android:textSize="14sp"
         android:textStyle="bold" />
@@ -54,14 +41,15 @@
         android:id="@+id/listGamesPlayed"
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"/>
 
     <Button
         android:id="@+id/beginQuiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp"
+        android:padding="12dp"
+        android:backgroundTint="#44A648"
         android:text="Commencer le quiz"
         android:onClick="beginQuiz"
         />
@@ -69,7 +57,8 @@
         android:id="@+id/logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp"
+        android:padding="8dp"
+        android:backgroundTint="#818181"
         android:text="Déconnexion"
         android:onClick="logout"
         />

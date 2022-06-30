@@ -1,12 +1,13 @@
 package my.quiz.classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class UserClass {
+public class UserClass implements Serializable {
     private String email;
     private String name;
     private String password;
-    private ArrayList<UserClass> friends = new ArrayList<UserClass>();
+    private ArrayList<String> friends = new ArrayList<String>();
     private ArrayList<GameClass> gamesPlayed = new ArrayList<GameClass>();
 
     public UserClass(String name, String email, String password) {
@@ -34,7 +35,7 @@ public class UserClass {
         return game;
     }
 
-    public ArrayList<UserClass> getFriends() {
+    public ArrayList<String> getFriends() {
         return friends;
     }
 
@@ -50,7 +51,7 @@ public class UserClass {
         this.email = email;
     }
 
-    public void addFriend(UserClass user) {
+    public void addFriend(String user) {
         friends.add(user);
     }
     public int getTotalScore() {

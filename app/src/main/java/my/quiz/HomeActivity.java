@@ -26,7 +26,7 @@ import my.quiz.classes.GameClass;
 import my.quiz.classes.UserClass;
 
 public class HomeActivity extends AppCompatActivity {
-    private ListView listGamesPlayed;
+    private ListView listGamesPlayed, listFriends;
     TextView loginSuccessful;
     Button beginQuiz, logout;
     FirebaseAuth mAuth;
@@ -40,13 +40,16 @@ public class HomeActivity extends AppCompatActivity {
 
         beginQuiz = findViewById(R.id.beginQuiz);
         logout = findViewById(R.id.logout);
-        listGamesPlayed = findViewById(R.id.listFriends);
+        listGamesPlayed = findViewById(R.id.listGamesPlayed);
+        listFriends = findViewById(R.id.listFriends);
         loginSuccessful = findViewById(R.id.loginSuccessful);
 
         ArrayList<String> listG = new ArrayList<>();
-
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.list_item, listG);
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.list_gamesplayed, listG);
         listGamesPlayed.setAdapter(adapter);
+        ArrayList<String> listF = new ArrayList<>();
+        ArrayAdapter adapter2 = new ArrayAdapter<String>(this, R.layout.list_friends, listF);
+        listFriends.setAdapter(adapter2);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,35 +64,43 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, QuizActivity.class);
+                intent.putExtra("user", user);
+                Toast.makeText(getApplicationContext(), user.getName(), Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         });
 
-        DatabaseReference reference = FirebaseDatabase.getInstance("https://myquiz-9cc5d-default-rtdb.europe-west1.firebasedatabase.app").getReference().child("Users");
+        DatabaseReference reference = FirebaseDatabase.getInstance("https://myquiz-9cc5d-default-rtdb.europe-west1.firebasedatabase.app").getReference();
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 listG.clear();
-                for(DataSnapshot snapshotUser : snapshot.getChildren()) {
+                listF.clear();
+                for(DataSnapshot snapshotUser : snapshot.child("Users").getChildren()) {
                     String email = snapshotUser.child("email").getValue().toString();
                     String name = snapshotUser.child("name").getValue().toString();
                     String password = snapshotUser.child("password").getValue().toString();
 
                     if(email.equals(userF.getEmail())) {
                         user = new UserClass(name, email, password );
-
                         for(DataSnapshot snapshotGame : snapshotUser.child("gamesPlayed").getChildren()) {
                             String theme = snapshotGame.child("theme").getValue().toString();
                             String scored = snapshotGame.child("score").getValue().toString();
                             int score = Integer.parseInt(scored);
                             user.addGame(theme,score);
-                            listG.add(score+"");
+                            listG.add("Votre Score : "+ score +" " + theme);
+                        }
+                        for(DataSnapshot snapshotGame : snapshotUser.child("friends").getChildren()) {
+                            String nameFriend = snapshotGame.child("name").getValue().toString();
+                            user.addFriend(nameFriend);
+                            listF.add(nameFriend);
                         }
                     }
-                }
 
-                loginSuccessful.setText("Joueur " + user.getName()+ " (" + user.getEmail() +")");
+                }
+                loginSuccessful.setText("Bienvenue " + user.getName());
                 adapter.notifyDataSetChanged();
+                adapter2.notifyDataSetChanged();
             }
 
 
